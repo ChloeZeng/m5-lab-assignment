@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./navbar";
 import Home from "./home";
 import Cart from "./cart";
+import SignIn from "./signin";
+import CheckOut from './checkout';
 import productsData from "./products";
 
 class App extends Component {
@@ -56,7 +58,18 @@ class App extends Component {
             path="/cart"
             element={<Cart products={this.state.products} />}
           />
+
+          <Route
+            path="/signin"
+            element={<SignIn />}
+          />
+
+          <Route
+            path="/checkout"
+            element={<CheckOut />}
+          />
         </Routes>
+
       </BrowserRouter>
     );
   }

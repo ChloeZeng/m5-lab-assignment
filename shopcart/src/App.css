@@ -101,3 +101,23 @@
 .cart-qty-text {
   font-size: 18px;
 }
+
+.signin-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.signin-form-box {
+  border: 1px solid #ddd;
+  padding: 20px;
+  width: 230px;
+}
+
+.checkout-card {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.checkout-welcome-icon {
+  font-size: 40px;
+}
