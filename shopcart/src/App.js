@@ -14,9 +14,14 @@ class App extends Component {
     super(props);
 
     this.state = {
-      products: productsData
+      products: productsData,
+      sortType: "normal"
     };
   }
+
+  handleSortChange = (e) => {
+  this.setState({ sortType: e.target.value });
+  };
 
   handleIncrement = (index) => {
     const updatedProducts = [...this.state.products];
@@ -34,6 +39,16 @@ class App extends Component {
   };
 
   render() {
+    let sortedProducts = [...this.state.products];
+
+    if (this.state.sortType === "normal") {
+      sortedProducts.sort((a, b) => a.id - b.id);
+    } else if (this.state.sortType === "lowest") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (this.state.sortType === "highest") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+
     const totalItems = this.state.products
       .map(product => product.value)
       .reduce((sum, value) => sum + value, 0);
@@ -47,9 +62,11 @@ class App extends Component {
             path="/"
             element={
               <Home
-                products={this.state.products}
+                products={sortedProducts}
                 handleIncrement={this.handleIncrement}
                 handleDecrement={this.handleDecrement}
+                sortType={this.state.sortType}
+                handleSortChange={this.handleSortChange}
               />
             }
           />

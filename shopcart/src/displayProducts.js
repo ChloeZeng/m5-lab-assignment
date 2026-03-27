@@ -18,7 +18,8 @@ function DisplayProducts(props) {
     <div className="container mt-4">
       {props.products.map((product, index) => (
         <div key={index} className="border-bottom py-4">
-          <h4>{product.desc}</h4>
+          <h4>{product.desc} <span style={{ color: "red" }}>${product.price}</span>
+          </h4>
 
           <div className="d-flex align-items-center">
             <img
